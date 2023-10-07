@@ -6,6 +6,27 @@
     <title>Hub</title>
 </head>
 <body>
-    <h1>Nothingness</h1>
+    <h1>Welcome to the Main Hub</h1>
+    <div id="subpage_links"></div>
+
+    <script>
+        // Define an array of subpage names and their corresponding URLs
+        const subpage_links = [
+            { name: "Magic Highlight", url: "pages/magic_highlight/index.html" },
+        ];
+
+        // Get a reference to the div where we'll insert the links
+        const subpage_links_container = document.getElementById("subpage_links");
+
+        // Loop through the subpages array and create links for each one
+        subpage_links.forEach(subpage => {
+            const link = document.createElement("a");
+            link.href = subpage.url;
+            link.textContent = subpage.name;
+            link.classList.add("subpage-link"); // Optional: Add a class for styling
+            subpage_links_container.appendChild(link);
+            subpage_links_container.appendChild(document.createElement("br")); // Optional: Add line breaks
+        });
+    </script>
 </body>
 </html>
