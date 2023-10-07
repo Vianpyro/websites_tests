@@ -1,0 +1,80 @@
+:root {
+    --purple: rgb(123, 31, 162);
+    --violet: rgb(103, 58, 183);
+    --pink: rgb(244, 143, 177);
+    --rose: rgb(255, 0, 128);
+}
+
+body {
+    background-color: rgb(10, 10, 10);
+    display: grid;
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+    place-items: center;
+    user-select: none;
+}
+
+h1 {
+    color: white;
+    font-family: "Rubik", sans-serif;
+    font-size: clamp(2em, 2vw, 4em);
+    font-weight: 400;
+    margin: 0px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+h1 > .magic {
+    display: inline-block;
+    position: relative;
+}
+
+h1 > .magic > .particle {
+    --size: clamp(20px, 1.5vw, 30px);
+
+    display: block;
+    position: absolute;
+    font-size: var(--size);
+    left: var(--particle_left);
+    top: var(--particle_top);
+    
+    display: block;
+    opacity: 0.7;
+    color: var(--pink);
+
+    animation: scale 1s ease forwards;
+}
+
+h1 > .magic > .highlight {
+    animation: background_panorama 3s linear infinite;
+    background: linear-gradient(to right,
+        var(--purple),
+        var(--violet),
+        var(--rose),
+        var(--purple)
+    );    
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+@keyframes background_panorama {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: -200% center;
+    }
+}
+
+@keyframes scale {
+    from, to {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
